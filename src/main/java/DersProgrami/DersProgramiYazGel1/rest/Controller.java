@@ -9,6 +9,8 @@ import DersProgrami.DersProgramiYazGel1.services.SinifService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+@CrossOrigin()
 @RestController
 @RequestMapping("program")
 public class Controller {
@@ -20,10 +22,17 @@ public class Controller {
     @Autowired
     private SinifService sinifService;
 
-    @GetMapping("dersekle/{Ders}")
-    public Ders dersEkle(@PathVariable(name = "Ders") String dersIsmi)
+    @GetMapping
+    private String sayHello(){
+        return "hello everybody";
+    }
+    @GetMapping("/dersler")
+    private List<Ders> dersleriGor(){
+        return dersService.desleriGor();
+    }
+    @PostMapping(value = "/dersekle")
+    public Ders dersEkle(@RequestBody Ders ders)
     {
-        Ders ders = new Ders(dersIsmi);
         return dersService.dersEkle(ders);
     }
 
@@ -36,5 +45,6 @@ public class Controller {
     private Sinif sinifEkle(@RequestBody Sinif sinif){
         return sinifService.sinifEkle(sinif);
     }
+
 
 }

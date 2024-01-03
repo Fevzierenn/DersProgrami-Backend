@@ -20,9 +20,7 @@ public class Ders {
     @Column(name = "ders_isim")
     private String dersIsmi;
 
-    public Ders(String dersIsmi){
-        this.dersIsmi=dersIsmi;
-    }
+
 
 
 }
