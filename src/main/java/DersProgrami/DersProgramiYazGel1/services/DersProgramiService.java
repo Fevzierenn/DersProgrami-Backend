@@ -5,6 +5,8 @@ import DersProgrami.DersProgramiYazGel1.entities.DersProgrami;
 import DersProgrami.DersProgramiYazGel1.entities.HocaSaatleri;
 import DersProgrami.DersProgramiYazGel1.entities.SinifSaatleri;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -40,7 +42,7 @@ public class DersProgramiService {
         List countOfSinif=dersProgramiRepository.sinifDersiBul(tempSinif);
         return (Long) countOfSinif.get(0);
     }
-    public String dersPrograminaEkle(DersProgrami dersProgrami) {
+    public ResponseEntity dersPrograminaEkle(DersProgrami dersProgrami) {
         Long cakisanHocaDersi = hocaninCakisanDersleri(dersProgrami);
         Long cakisanSinifDersi = sinifinCakisanDersleri(dersProgrami);
 
@@ -48,14 +50,15 @@ public class DersProgramiService {
         System.out.println("sinifin cakisan dersi:"+cakisanSinifDersi);
 
         if(cakisanSinifDersi != 0)
-            return "Sınıf müsait değil";
+            return new ResponseEntity<>("Sınıfta belirtilen saatlerde ders var.", HttpStatus.BAD_REQUEST);
         if(cakisanHocaDersi !=0)
-            return "Hoca'nın belirtilen saatlerde dersi var.";
+            return new ResponseEntity<>("Hoca'nın belirtilen saatlerde dersi var.", HttpStatus.BAD_REQUEST);
+
 
         else
         {
            dersProgramiRepository.dersKaydiniYap(dersProgrami);
-            return "Kayıt başarıyla oluşturuldu";
+            return new ResponseEntity<>("Kayıt başarıyla oluşturuldu", HttpStatus.OK);
         }
 
     }

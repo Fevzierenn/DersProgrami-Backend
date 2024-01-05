@@ -5,6 +5,8 @@ import DersProgrami.DersProgramiYazGel1.entities.Hoca;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class HocaService {
 
@@ -18,5 +20,9 @@ public class HocaService {
 
     public Hoca hocaEkle(Hoca hoca) {
         return hocaRepository.save(hoca);
+    }
+
+    public List<Hoca> hocalariGetir() {
+        return hocaRepository.findAll();
     }
 }

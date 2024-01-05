@@ -5,6 +5,8 @@ import DersProgrami.DersProgramiYazGel1.entities.Sinif;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SinifService {
     private final SinifRepository sinifRepository;
@@ -16,5 +18,9 @@ public class SinifService {
 
     public Sinif sinifEkle(Sinif sinif) {
         return sinifRepository.save(sinif);
+    }
+
+    public List<Sinif> siniflariGetir() {
+        return sinifRepository.findAll();
     }
 }

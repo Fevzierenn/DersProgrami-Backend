@@ -1,17 +1,10 @@
 package DersProgrami.DersProgramiYazGel1.rest;
 
-import DersProgrami.DersProgramiYazGel1.entities.Ders;
-import DersProgrami.DersProgramiYazGel1.entities.DersProgrami;
-import DersProgrami.DersProgramiYazGel1.entities.Hoca;
-import DersProgrami.DersProgramiYazGel1.entities.Sinif;
-import DersProgrami.DersProgramiYazGel1.services.DersProgramiService;
-import DersProgrami.DersProgramiYazGel1.services.DersService;
-import DersProgrami.DersProgramiYazGel1.services.HocaService;
-import DersProgrami.DersProgramiYazGel1.services.SinifService;
+import DersProgrami.DersProgramiYazGel1.entities.*;
+import DersProgrami.DersProgramiYazGel1.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.sql.Time;
 import java.util.List;
 @CrossOrigin()
 @RestController
@@ -26,6 +19,8 @@ public class Controller {
     private SinifService sinifService;
     @Autowired
     private DersProgramiService dersProgramiService;
+    @Autowired
+    private GunService gunService;
 
     @GetMapping
     private String sayHello(){
@@ -34,6 +29,19 @@ public class Controller {
     @GetMapping("/dersler")
     private List<Ders> dersleriGor(){
         return dersService.desleriGor();
+    }
+    @GetMapping("/hocalar")
+    private List<Hoca> hocalariGor(){
+        return hocaService.hocalariGetir();
+    }
+    @GetMapping("/siniflar")
+    private List<Sinif> siniflariGor(){
+        return sinifService.siniflariGetir();
+    }
+
+    @GetMapping("/gunler")
+    private List<Gun> gunleriGor(){
+        return gunService.gunleriGetir();
     }
     @PostMapping(value = "/dersekle")
     public Ders dersEkle(@RequestBody Ders ders)
@@ -53,7 +61,7 @@ public class Controller {
 
 
     @PostMapping("/derskoy")
-    private String dersProgramiEkle(@RequestBody DersProgrami dersProgrami){
+    private ResponseEntity dersProgramiEkle(@RequestBody DersProgrami dersProgrami){
         return dersProgramiService.dersPrograminaEkle(dersProgrami);
     }
 
