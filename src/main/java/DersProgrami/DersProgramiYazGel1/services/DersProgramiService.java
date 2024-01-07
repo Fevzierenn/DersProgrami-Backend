@@ -4,6 +4,7 @@ import DersProgrami.DersProgramiYazGel1.dataJPA.DersProgramiRepository;
 import DersProgrami.DersProgramiYazGel1.entities.DersProgrami;
 import DersProgrami.DersProgramiYazGel1.entities.HocaSaatleri;
 import DersProgrami.DersProgramiYazGel1.entities.SinifSaatleri;
+import DersProgrami.DersProgramiYazGel1.entities.TabloDegerleri;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -61,5 +62,13 @@ public class DersProgramiService {
             return new ResponseEntity<>("Kayıt başarıyla oluşturuldu", HttpStatus.OK);
         }
 
+    }
+
+    public List<TabloDegerleri> dersProgramiGetir() {
+        return  dersProgramiRepository.dersPrograminiGetir();
+    }
+
+    public void dersProgramindanDersSil(int id) {
+         dersProgramiRepository.dersProgramindanDersSil(id);
     }
 }

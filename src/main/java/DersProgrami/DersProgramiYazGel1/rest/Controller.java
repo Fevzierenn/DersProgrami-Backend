@@ -65,6 +65,15 @@ public class Controller {
         return dersProgramiService.dersPrograminaEkle(dersProgrami);
     }
 
+    @DeleteMapping("/tablodanderssil/{id}")
+    private void dersProgramindanDersSil(@PathVariable int id){
+         dersProgramiService.dersProgramindanDersSil(id);
+    }
+
+    @GetMapping("/dersprogramigetir")
+    private List<TabloDegerleri> dersPrograminiGetir(){
+        return dersProgramiService.dersProgramiGetir();
+    }
 
 //    @PostMapping("/derskoy/{dersid}/{hocaid}/{gunid}/{sinifid}/{baslangic}/{bitis}")
 //    private void dersPrograminaDersKoy(@PathVariable int dersid, @PathVariable int hocaid,

@@ -3,6 +3,7 @@ package DersProgrami.DersProgramiYazGel1.dataJPA;
 import DersProgrami.DersProgramiYazGel1.entities.DersProgrami;
 import DersProgrami.DersProgramiYazGel1.entities.HocaSaatleri;
 import DersProgrami.DersProgramiYazGel1.entities.SinifSaatleri;
+import DersProgrami.DersProgramiYazGel1.entities.TabloDegerleri;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,23 @@ public class DersProgramiRepository {
         q.setParameter("gunid",dersProgrami.getGun_id());
         q.setParameter("start", dersProgrami.getBaslangic_saat());
         q.setParameter("finish", dersProgrami.getBitis_saat());
+        q.executeUpdate();
+    }
+
+    public List<TabloDegerleri> dersPrograminiGetir() {
+        Query q = entityManager.createNativeQuery("select \n" +
+                "program_id,dersler.ders_isim, hocalar.isim, hocalar.soyisim, gunler.gun, siniflar.sinif_id, baslangic_saat,bitis_saat\n" +
+                " from ders_programi D\n" +
+                " inner join dersler on dersler.ders_id = D.ders_id \n" +
+                " inner join hocalar on hocalar.hoca_id = D.hoca_id\n" +
+                " inner join gunler on gunler.gun_id = D.gun_id\n" +
+                " inner join siniflar on siniflar.sinif_id = D.sinif_id order by gunler.gun_id , baslangic_saat asc");
+        return q.getResultList();
+    }
+    @Transactional
+    public void dersProgramindanDersSil(int id) {
+        Query q  = entityManager.createNativeQuery("delete from ders_programi where program_id= :id");
+        q.setParameter("id", id);
         q.executeUpdate();
     }
 }
