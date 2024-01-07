@@ -5,6 +5,7 @@ Yazilim Gelistirme Lab odevi
 
 ### Kullanılan Teknolojiler
 Bu projenin Backend kısmı Java Spring Framework'ü ile oluşturulmuştur. Frontend kısmı ise React kullanarak oluşturulmuştur.
+Git versiyon kontrol yazılımı kullanılmıştır.
 #### Backend kısmı İntelliJ ide kullanılarak yapılmıştır. Frontend kısmında ise Visual Studio ide kullanılmıştır.
 
 ### Uygulamadaki temel amaç
