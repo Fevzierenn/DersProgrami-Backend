@@ -30,11 +30,8 @@ Proje, kullanıcı bilgilerini ve ders programı verilerini güvenli bir şekild
 
 İyileştirme ve Gelecek Geliştirmeler:
 Projede kullanıcı geri bildirimleri göz önünde bulundurularak ve teknoloji standartlarına uygun olarak geliştirmeler yapılır. Yeni özellikler eklenir ve sistem sürekli olarak kullanıcı deneyimini artırmak üzere
-## Authors
 
-Fevzi Eren Çiçek
-Metecan Çıkrıkçıoğlu
-Muhammet Arda Ünsalan
+
 
 
 
