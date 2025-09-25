@@ -29,7 +29,7 @@ Güvenlik ve Veri Bütünlüğü:
 Proje, kullanıcı bilgilerini ve ders programı verilerini güvenli bir şekilde işlemek için güçlü bir güvenlik altyapısına sahiptir. Veritabanında tutulan veriler, SQL'nin sağladığı bütünlük mekanizmaları ile korunur.
 
 İyileştirme ve Gelecek Geliştirmeler:
-Projede kullanıcı geri bildirimleri göz önünde bulundurularak ve teknoloji standartlarına uygun olarak geliştirmeler yapılır. Yeni özellikler eklenir ve sistem sürekli olarak kullanıcı deneyimini artırmak üzere
+Projede kullanıcı geri bildirimleri göz önünde bulundurularak ve teknoloji standartlarına uygun olarak geliştirmeler yapılır. Yeni özellikler eklenir ve sistem sürekli olarak kullanıcı deneyimini artırmak üzere planlanmıştır.
 
 
 
