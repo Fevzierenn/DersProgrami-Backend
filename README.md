@@ -1,5 +1,4 @@
 # Ders Programı Otomasyon
-Yazilim Gelistirme Lab odevi
 
 
 
